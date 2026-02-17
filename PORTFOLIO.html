@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditi Shardul - Software Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Space Mono', 'Courier New', Courier, monospace;
+            background-color: #404040;
+        }
+        
+        .mono {
+            font-family: 'Space Mono', 'Courier New', Courier, monospace;
+        }
+        
+        .dot-pattern {
+            background-image: radial-gradient(circle, #999999 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        
+        .animate-slideUp {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(156, 163, 175, 0.4);
+            border-radius: 50%;
+            animation: pulse 3s infinite;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="text-white overflow-x-hidden">
+    <!-- Dot Pattern Background -->
+    <div class="fixed inset-0 dot-pattern pointer-events-none z-0"></div>
+    
+    <!-- Floating Particles -->
+    <div class="fixed inset-0 pointer-events-none z-0" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black bg-opacity-60 backdrop-blur-xl z-50 border-b border-gray-700 border-opacity-20">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-terminal text-gray-400 text-2xl"></i>
+                    <h1 class="text-2xl font-bold text-gray-400 mono">&lt;Aditi Shardul /&gt;</h1>
+                </div>
+                
+                <div class="hidden md:flex gap-8">
+                    <a href="#about" class="hover:text-gray-300 transition capitalize">about</a>
+                    <a href="#projects" class="hover:text-gray-300 transition capitalize">projects</a>
+                    <a href="#experience" class="hover:text-gray-300 transition capitalize">experience</a>
+                    <a href="#skills" class="hover:text-gray-300 transition capitalize">skills</a>
+                    <a href="#education" class="hover:text-gray-300 transition capitalize">education</a>
+                    <a href="#contact" class="hover:text-gray-300 transition capitalize">contact</a>
+                </div>
+
+                <button class="md:hidden text-gray-400" onclick="toggleMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 flex flex-col gap-4">
+                <a href="#about" class="text-left transition capitalize" onclick="toggleMenu()">about</a>
+                <a href="#projects" class="text-left transition capitalize" onclick="toggleMenu()">projects</a>
+                <a href="#experience" class="text-left transition capitalize" onclick="toggleMenu()">experience</a>
+                <a href="#skills" class="text-left transition capitalize" onclick="toggleMenu()">skills</a>
+                <a href="#education" class="text-left transition capitalize" onclick="toggleMenu()">education</a>
+                <a href="#contact" class="text-left transition capitalize" onclick="toggleMenu()">contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative min-h-screen flex items-center justify-center px-6 pt-40">
+        <div class="max-w-5xl text-center z-10">
+            <div class="mb-6 overflow-hidden">
+                <h2 class="text-4xl md:text-5xl font-black mb-4 animate-slideUp drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                    <span class="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                        Aditi Nitin Shardul
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <span class="px-6 py-2 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-lg backdrop-blur-sm animate-fadeIn">
+                    Software Engineer
+                </span>
+            </div>
+            
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Results-oriented software engineer specializing in <span class="text-gray-200 font-semibold">scalable AI/ML systems</span>, 
+                <span class="text-gray-200 font-semibold"> data-driven platforms</span>, and 
+                <span class="text-gray-200 font-semibold"> full-stack development</span>. 
+                Transforming business needs into production-ready solutions.
+            </p>
+            
+            <div class="flex gap-6 justify-center mb-12">
+                <a href="https://github.com/adisharr" target="_blank" rel="noopener noreferrer" class="p-4 bg-gradient-to-br from-gray-500 from-opacity-20 to-gray-600 to-opacity-20 border border-gray-400 border-opacity-30 rounded-full transition-all">
+                    <i class="fab fa-github text-3xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/aditi-nitin-shardul-7041362a4/" target="_blank" rel="noopener noreferrer" class="p-4 bg-gradient-to-br from-gray-500 from-opacity-20 to-gray-600 to-opacity-20 border border-gray-400 border-opacity-30 rounded-full transition-all">
+                    <i class="fab fa-linkedin text-3xl"></i>
+                </a>
+                <a href="mailto:aditishardul2011@gmail.com" class="p-4 bg-gradient-to-br from-gray-500 from-opacity-20 to-gray-600 to-opacity-20 border border-gray-400 border-opacity-30 rounded-full transition-all">
+                    <i class="fas fa-envelope text-3xl"></i>
+                </a>
+            </div>
+
+            <a href="#projects" class="inline-flex items-center gap-2 text-gray-400 animate-bounce">
+                <span>Explore My Work</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="relative min-h-screen py-20 px-6">
+        <div class="max-w-7xl mx-auto z-10 relative">
+            <div class="text-center mb-16">
+                <h3 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
+                    Projects
+                </h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-600 border-opacity-20">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-code text-gray-400 text-3xl"></i>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/adisharr" target="_blank" class="p-2 bg-gray-700 bg-opacity-50 rounded-lg">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="p-2 bg-gray-700 bg-opacity-50 rounded-lg">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">AI Driven Predictive Intelligence System</h4>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Designed and deployed a predictive intelligence system using supervised and unsupervised ML models to identify patterns in historical datasets. Achieved ~25% accuracy improvement through feature optimization and exposed real-time predictions via scalable REST APIs.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">Python</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">Machine Learning</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">REST APIs</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">Feature Engineering</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-600 border-opacity-20">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-code text-gray-400 text-3xl"></i>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/adisharr" target="_blank" class="p-2 bg-gray-700 bg-opacity-50 rounded-lg">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="p-2 bg-gray-700 bg-opacity-50 rounded-lg">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">RAG Based LLM Assistant</h4>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Built a Retrieval-Augmented Generation (RAG) system that delivers context-aware, grounded responses using domain-specific data. Improved answer accuracy by ~40% through vector embeddings and semantic similarity search, and deployed as a scalable REST API backend for real-time interaction.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">Python</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">LLM</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">RAG</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">Vector Embeddings</span>
+                        <span class="px-3 py-1 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-full text-sm text-gray-300">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="relative py-20 px-6">
+        <div class="max-w-5xl mx-auto z-10 relative">
+            <div class="text-center mb-16">
+                <h3 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
+                    Experience
+                </h3>
+                <p class="text-gray-400 text-lg">My professional journey</p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border-l-4 border-gray-400">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-briefcase text-gray-400 text-3xl mt-1"></i>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold mb-2">Software Engineer</h4>
+                            <p class="text-gray-400 font-semibold mb-2">iConsult, Syracuse</p>
+                            <p class="text-gray-400 text-sm mb-4">June 2025 – Present</p>
+                            <p class="text-gray-300 leading-relaxed">Developed an AI-powered Excel add-in that converts natural language into executable VBA macros, reducing manual macro development effort by 70%. Improved macro reliability by 40% using COM-based Excel automation and secure LLM integration. Built a hybrid architecture with Python Flask and Office.js to enable seamless AI-driven automation within Excel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border-l-4 border-gray-400">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-briefcase text-gray-400 text-3xl mt-1"></i>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold mb-2">AI & ML Trainee</h4>
+                            <p class="text-gray-400 font-semibold mb-2">University of Mumbai</p>
+                            <p class="text-gray-400 text-sm mb-4">June 2022 – June 2024</p>
+                            <p class="text-gray-300 leading-relaxed">Developed scalable ML workflows using Python (NumPy, Pandas) to clean, preprocess, and model real-world datasets. Improved data consistency by 35%, reduced overfitting through cross-validation techniques, and optimized training pipelines to cut iteration time by 30%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="relative py-20 px-6">
+        <div class="max-w-7xl mx-auto z-10 relative">
+            <div class="text-center mb-16">
+                <h3 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
+                    Technical Skills
+                </h3>
+                <p class="text-gray-400 text-lg">Technologies I work with</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-500 border-opacity-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-microchip text-gray-400 text-3xl"></i>
+                        <h4 class="text-2xl font-bold text-gray-400">Languages</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Python</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Java</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">JavaScript</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">SQL</span>
+                    </div>
+                </div>
+
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-500 border-opacity-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-microchip text-gray-400 text-3xl"></i>
+                        <h4 class="text-2xl font-bold text-gray-400">Backend & APIs</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">RESTful APIs</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Flask</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Microservices</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">API Design</span>
+                    </div>
+                </div>
+
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-500 border-opacity-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-microchip text-gray-400 text-3xl"></i>
+                        <h4 class="text-2xl font-bold text-gray-400">AI / ML</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Machine Learning Pipelines</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Model Integration</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">LLM APIs</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">RAG</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Vector Embeddings</span>
+                    </div>
+                </div>
+
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-500 border-opacity-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-microchip text-gray-400 text-3xl"></i>
+                        <h4 class="text-2xl font-bold text-gray-400">Data & Systems</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Data Structures & Algorithms</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">OOP</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">SQL Databases</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">NumPy</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Pandas</span>
+                    </div>
+                </div>
+
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border border-gray-500 border-opacity-20 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-microchip text-gray-400 text-3xl"></i>
+                        <h4 class="text-2xl font-bold text-gray-400">Tools & DevOps</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Git</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Docker</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">Linux</span>
+                        <span class="px-5 py-2.5 bg-gray-500 bg-opacity-10 border border-gray-400 border-opacity-30 rounded-xl text-gray-200">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="relative py-20 px-6">
+        <div class="max-w-5xl mx-auto z-10 relative">
+            <div class="text-center mb-16">
+                <h3 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
+                    Education
+                </h3>
+                <p class="text-gray-400 text-lg">Academic background</p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border-l-4 border-gray-400">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-graduation-cap text-gray-400 text-3xl mt-1"></i>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold mb-2">Master's in Computer and Information Science</h4>
+                            <p class="text-gray-400 font-semibold mb-2">Syracuse University</p>
+                            <p class="text-gray-400 text-sm mb-2">August 2024 – May 2026</p>
+                            <p class="text-gray-300">GPA: 3.4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black bg-opacity-40 backdrop-blur-xl rounded-2xl p-8 border-l-4 border-gray-400">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-graduation-cap text-gray-400 text-3xl mt-1"></i>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold mb-2">Bachelor of Engineering</h4>
+                            <p class="text-gray-400 font-semibold mb-2">University of Mumbai</p>
+                            <p class="text-gray-400 text-sm mb-2">May 2020 – May 2024</p>
+                            <p class="text-gray-300">GPA: 3.4</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center z-10 relative">
+            <h3 class="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 bg-clip-text text-transparent">
+                Let's Build Something Amazing
+            </h3>
+            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                I'm always open to discussing new projects, creative ideas, or opportunities to collaborate.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <a href="mailto:aditishardul2011@gmail.com" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-gray-500 via-gray-400 to-gray-500 rounded-full font-bold text-lg">
+                    <i class="fas fa-envelope"></i>
+                    aditishardul2011@gmail.com
+                </a>
+                <a href="tel:+13157183163" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gray-500 bg-opacity-20 border border-gray-400 border-opacity-30 rounded-full font-bold text-lg">
+                    📞 (315) 718-3163
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-12 text-center border-t border-gray-700 border-opacity-20">
+        <p class="text-gray-400 mb-2">© 2024 Aditi Nitin Shardul. Crafted with passion & code.</p>
+        <p class="text-gray-500 text-sm">Built with HTML, Tailwind CSS & lots of coffee ☕</p>
+    </footer>
+
+    <script>
+        // Generate floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 40; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particle.style.animationDuration = (2 + Math.random() * 3) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
